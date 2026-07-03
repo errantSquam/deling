@@ -51,7 +51,26 @@ public:
 	};
 
 	enum ExportType {
-		MIM, MAP, LZK, one, mim, map, jsm, sym, msd, inf, id, ca, tdw, msk, mrt, rat, pmp, pmd, sfx, pvp
+		MIM,
+		MAP,
+		LZK,
+		one,
+		mim,
+		map,
+		jsm,
+		sym,
+		msd,
+		inf,
+		id,
+		ca,
+		tdw,
+		msk,
+		mrt,
+		rat,
+		pmp,
+		pmd,
+		sfx,
+		pvp
 	};
 
 	MainWindow();
@@ -73,6 +92,7 @@ private slots:
 	void exportAllScripts();
 	void exportAllEncounters();
 	void exportAllBackground();
+	void exportAllAdditionalFont();
 	void importCurrent();
 	void optimizeArchive();
 	void manageArchive();
@@ -92,6 +112,7 @@ private slots:
 	void openRecentFile(QAction *action);
 signals:
 	void fieldIdChanged(int);
+
 private:
 	bool openArchive(const QString &path);
 	bool openFsArchive(const QString &path);
@@ -106,7 +127,7 @@ private:
 	FieldArchive *fieldArchive;
 	Field *field;
 	Field *currentField;
-	FieldThread *fieldThread;//TODO
+	FieldThread *fieldThread; // TODO
 	MsdFile *msdFile;
 	JsmFile *jsmFile;
 	QString filePath;
@@ -137,8 +158,9 @@ private:
 	QStackedWidget *mainStackedWidget, *stackedWidget;
 	FsDialog *fsDialog;
 	VarManager *_varManager;
-    bool firstShow;
+	bool firstShow;
+
 protected:
-    void showEvent(QShowEvent *event) override;
-    void closeEvent(QCloseEvent *event) override;
+	void showEvent(QShowEvent *event) override;
+	void closeEvent(QCloseEvent *event) override;
 };
